@@ -12,12 +12,40 @@ const personalMovieDB = {
 };
 
 
-const firstNameFilms = prompt("Один из последних посмотренных фильмов?", "");
-const firstFilmRating = prompt("На сколько оцените его?", "");
-const twoNameFilms = prompt("Один из последних посмотренных фильмов?", "");
-const twoFilmRating = prompt("На сколько оцените его?", "");
+/* const a = prompt("Один из последних посмотренных фильмов?", ""),
+      b = prompt("На сколько оцените его?", ""),
+      c = prompt("Один из последних посмотренных фильмов?", ""),
+      d = prompt("На сколько оцените его?", ""); */
 
-personalMovieDB.movies[firstNameFilms] = firstFilmRating;
-personalMovieDB.movies[twoNameFilms] = twoFilmRating;
+/* personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d; */
+
+
+
+
+for (let i = 0; i < 2; i++) {
+    const a = prompt("Один из последних посмотренных фильмов?", ""),
+          b = prompt("На сколько оцените его?", "");
+
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('Done')
+    } else {
+        console.log('Eror')
+        i--;
+    }
+
+} 
+
+if (personalMovieDB.count < 10) {
+    alert('Просмотренно довольно мало фильмов');
+} else if (personalMovieDB.count > 10 && personalMovieDB.count <= 30) {
+    alert('Вы класический зритель');
+} else if (personalMovieDB.count > 30) {
+    alert('Вы киноман батинька!');
+}
+  else {
+      alert('Хьюстон у нас ошибка!');
+  }
 
 console.log(personalMovieDB);
